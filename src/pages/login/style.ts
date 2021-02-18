@@ -68,7 +68,7 @@ height: 100vh;
             color: #FFF;
             font-size: 16px;
             font-weight: 500;
-            margin: 50px 0;
+            margin: 24px 0;
             background: #68DE5A;
             transform: 0.2s;
 
