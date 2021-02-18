@@ -1,14 +1,14 @@
-import React, { ComponentType } from "react";
+import React, { ComponentType } from 'react';
 
-import { Redirect, Switch, Route, RouteProps } from "react-router-dom";
+import { Redirect, Switch, Route, RouteProps } from 'react-router-dom';
 
-import Home from "../pages/home";
-import Login from "../pages/login";
-import Error from "../pages/error";
-import RecoveryPass from "../pages/recoveryPass";
-import DashBoard from "../pages/dashBoard";
+import Home from '../pages/home';
+import Login from '../pages/login';
+import Error from '../pages/error';
+import RecoveryPass from '../pages/recoveryPass';
+import DashBoard from '../pages/dashBoard';
 
-import { isAuth } from "../services/isAuth";
+import { isAuth } from '../services/isAuth';
 
 interface PrivateRouteProps extends RouteProps {
   component: ComponentType;
@@ -20,11 +20,11 @@ const PrivateRoute: React.FC<PrivateRouteProps> = ({
 }) => (
   <Route
     {...rest}
-    render={(props) =>
+    render={props =>
       isAuth ? (
         <Component />
       ) : (
-        <Redirect to={{ pathname: "/", state: { from: props.location } }} />
+        <Redirect to={{ pathname: '/', state: { from: props.location } }} />
       )
     }
   />

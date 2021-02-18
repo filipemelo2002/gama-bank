@@ -8,6 +8,6 @@ const Error: React.FC = () => {
       <h1>Erro</h1>
     </>
   );
-}
+};
 
 export default Error;
