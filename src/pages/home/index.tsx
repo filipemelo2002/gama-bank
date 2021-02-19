@@ -1,5 +1,6 @@
 import React, { useState, FormEvent } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import { FiArrowRight } from 'react-icons/fi';
 import { HomePage } from './style';
 import Logo from '../../img/logo.png';
 import api from '../../services/api';
@@ -50,7 +51,10 @@ const Home: React.FC = () => {
           <h2>Gama Bank é um projeto de nossos alunos.</h2>
           <h2>Já tem conta?</h2>
           <Link to="/login">
-            <button>Acessar</button>
+            <button>
+              Acessar
+              <FiArrowRight size={26} color="#8C52E5" />
+            </button>
           </Link>
         </div>
         <div className="signup-div">
@@ -98,7 +102,10 @@ const Home: React.FC = () => {
               }}
               placeholder="Confirme sua senha"
             />
-            <button type="submit">Continuar</button>
+            <button type="submit">
+              Continuar
+              <FiArrowRight size={29} color="#9B9B9B" />
+            </button>
           </form>
         </div>
       </div>

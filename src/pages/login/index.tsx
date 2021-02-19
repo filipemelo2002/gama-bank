@@ -1,5 +1,6 @@
 import React, { useState, FormEvent } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import { FiArrowRight, FiChevronRight } from 'react-icons/fi';
 import Logo from '../../img/logo.png';
 import { LoginPage } from './style';
 
@@ -42,6 +43,7 @@ const Login: React.FC = () => {
               setLogin(e.target.value);
             }}
             type="text"
+            placeholder="Digite seu usuário"
           />
           <input
             value={password}
@@ -49,11 +51,21 @@ const Login: React.FC = () => {
               setPassword(e.target.value);
             }}
             type="password"
+            placeholder="Digite sua senha"
           />
-          <button type="submit">Logar</button>
+          <button type="submit">
+            Continuar
+            <FiArrowRight size={26} color="#FFF" />
+          </button>
         </form>
-        <Link to="/recoveryPass">Esqueci minha senha</Link>
-        <Link to="/">Ainda não sou cliente</Link>
+        <Link to="/recoveryPass">
+          Esqueci minha senha
+          <FiChevronRight size={13} />
+        </Link>
+        <Link to="/">
+          Ainda não sou cliente
+          <FiChevronRight size={13} />
+        </Link>
       </div>
     </LoginPage>
   );
