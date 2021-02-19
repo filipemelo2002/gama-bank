@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FiAlertTriangle, FiArrowLeft } from 'react-icons/fi';
-import Logo from "../../img/logo.png";
+import Logo from '../../img/logo.png';
 
 import { ErrorPage, Container, Content } from './style';
 
@@ -22,7 +22,7 @@ const Error: React.FC = () => {
           </button>
         </Content>
       </Container>
-    </ErrorPage> 
+    </ErrorPage>
   );
 };
 
