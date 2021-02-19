@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const LoginPage = styled.div`
 display: flex;
@@ -38,12 +37,12 @@ height: 100vh;
                 border: none;
                 font-size: 14px;
                 color: #878686;
-                padding: 8px; 
+                padding: 8px;
                 font-weight: 500;
                 text-align:left;
                 width: 100%;
                 border-bottom: 2px solid #878686;
-                
+
 
                 &::placeholder {
                     color: #878686;
@@ -89,27 +88,6 @@ height: 100vh;
                 margin-top: 8px;
             }
         }
-=======
-import styled, { css } from 'styled-components';
-
-export const LoginPage = styled.div`
-  background-color: #8c52e5;
-  height: 100vh;
-  img {
-    margin: 40px;
-  }
-  .login-div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    h4 {
-      display: block;
-    }
-    form {
-      input {
-        display: block;
-      }
->>>>>>> f7772e6817afe428d83246e3d06921e246da9e46
     }
   }
 `;
