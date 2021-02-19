@@ -49,7 +49,6 @@ export const Dashboard = styled.div`
 
   .icon {
     color: #fff;
-    color: #fff;
     display: flex;
     flex-direction: row;
     font-size: 30px;
@@ -60,7 +59,7 @@ export const Dashboard = styled.div`
   }
 `;
 
-export const Button = styled.div`
+export const Option = styled.div`
   position: absolute;
   width: 91px;
   height: 91px;
@@ -68,6 +67,7 @@ export const Button = styled.div`
 
   background: #8c52e5;
   border-radius: 5px;
+  cursor: pointer;
 
   span {
     width: 63px;

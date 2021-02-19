@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dashboard, Button } from './style';
+import { Dashboard, Option } from './style';
 import Logo from '../../img/logoDash.png';
 import { SiCashapp } from 'react-icons/si';
 import { AiOutlineInteraction, AiOutlineSnippets } from 'react-icons/ai';
@@ -12,22 +12,22 @@ const DashBoard: React.FC = () => {
         <aside>
           <img src={Logo} alt="" />
           <div className="menu">
-            <Button className="depositos">
+            <Option className="depositos">
               <SiCashapp className="icon" />
               <span>Depósitos</span>
-            </Button>
-            <Button className="planos">
+            </Option>
+            <Option className="planos">
               <AiOutlineSnippets className="icon" />
               <span>Planos</span>
-            </Button>
-            <Button className="pagamentos">
+            </Option>
+            <Option className="pagamentos">
               <FaWallet className="icon" />
               <span>Pagamentos</span>
-            </Button>
-            <Button className="transações">
+            </Option>
+            <Option className="transações">
               <AiOutlineInteraction className="icon" />
               <span>Transações</span>
-            </Button>
+            </Option>
           </div>
         </aside>
       </Dashboard>
