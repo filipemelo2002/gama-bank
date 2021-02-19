@@ -1,16 +1,16 @@
-import React, { useState, FormEvent } from "react";
-import { Link, useHistory } from "react-router-dom";
+import React, { useState, FormEvent } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import { FiArrowRight, FiChevronRight } from 'react-icons/fi';
-import Logo from "../../img/logo.png";
-import { LoginPage } from "./style";
+import Logo from '../../img/logo.png';
+import { LoginPage } from './style';
 
-import api from "../../services/api";
+import api from '../../services/api';
 
 const Login: React.FC = () => {
   const history = useHistory();
 
-  const [login, setLogin] = useState("");
-  const [password, setPassword] = useState("");
+  const [login, setLogin] = useState('');
+  const [password, setPassword] = useState('');
 
   function loginSys(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -20,10 +20,10 @@ const Login: React.FC = () => {
       senha: password,
     };
 
-    api.post(`login`, postData).then((response) => {
+    api.post(`login`, postData).then(response => {
       console.log(response.data);
-      localStorage.setItem("@tokenApp", response.data.token);
-      //history.push('/dashboard')
+      localStorage.setItem('@tokenApp', response.data.token);
+      // history.push('/dashboard')
     });
   }
 
@@ -39,7 +39,7 @@ const Login: React.FC = () => {
         <form onSubmit={loginSys}>
           <input
             value={login}
-            onChange={(e) => {
+            onChange={e => {
               setLogin(e.target.value);
             }}
             type="text"
@@ -47,7 +47,7 @@ const Login: React.FC = () => {
           />
           <input
             value={password}
-            onChange={(e) => {
+            onChange={e => {
               setPassword(e.target.value);
             }}
             type="password"

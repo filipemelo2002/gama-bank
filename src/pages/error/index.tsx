@@ -24,6 +24,6 @@ const Error: React.FC = () => {
       </Container>
     </ErrorPage> 
   );
-}
+};
 
 export default Error;

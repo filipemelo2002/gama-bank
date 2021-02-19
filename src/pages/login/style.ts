@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import styled from "styled-components";
 
 export const LoginPage = styled.div`
@@ -88,5 +89,27 @@ height: 100vh;
                 margin-top: 8px;
             }
         }
+=======
+import styled, { css } from 'styled-components';
+
+export const LoginPage = styled.div`
+  background-color: #8c52e5;
+  height: 100vh;
+  img {
+    margin: 40px;
+  }
+  .login-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h4 {
+      display: block;
     }
-`
+    form {
+      input {
+        display: block;
+      }
+>>>>>>> f7772e6817afe428d83246e3d06921e246da9e46
+    }
+  }
+`;

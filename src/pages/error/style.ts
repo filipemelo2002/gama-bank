@@ -6,7 +6,7 @@ export const ErrorPage = styled.div`
   justify-content: center;
   position: relative;
 
-  img{
+  img {
     position: absolute;
     top: 40px;
     left: 40px;
@@ -27,7 +27,7 @@ export const Content = styled.div`
   justify-content: center;
 
   padding: 40px;
-  
+
   max-width: 455px;
   background: #fbfbfb;
   border-radius: 8px;
@@ -43,7 +43,7 @@ export const Content = styled.div`
     text-align: center;
   }
 
-  button{
+  button {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -54,20 +54,19 @@ export const Content = styled.div`
     width: 325px;
     text-align: left;
     transition: 0.5s;
-    color: #FFF;
+    color: #fff;
     font-size: 16px;
     font-weight: 500;
     margin: 24px 0;
-    background: #68DE5A;
+    background: #68de5a;
     transform: 0.2s;
 
-    &:hover{
-        opacity: 0.6;
+    &:hover {
+      opacity: 0.6;
     }
 
     svg {
       margin: 0;
     }
   }
-
 `;

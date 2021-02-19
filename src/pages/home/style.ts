@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import bgImage from "../../img/happy.png";
+import styled from 'styled-components';
+import bgImage from '../../img/happy.png';
 
 export const HomePage = styled.div`
 display: flex;
@@ -35,7 +35,7 @@ height: 100vh;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                
+
                 border: 0;
                 border-radius: 100px;
                 padding: 15px 30px;
@@ -56,7 +56,7 @@ height: 100vh;
             border-radius: 15px;
             padding: 40px;
             flex: 0;
-                   
+
             h4{
                 font-size: 25px;
                 font-weight: 500;
@@ -75,7 +75,7 @@ height: 100vh;
                     border-bottom: 2px solid #878686;
                 }
             }
-            
+
             button{
                 display: flex;
                 align-items: center;
@@ -99,5 +99,7 @@ height: 100vh;
                 }
             }
         }
+      }
     }
-`
+  }
+`;

@@ -1,18 +1,18 @@
-import React, { useState, FormEvent } from "react";
-import { Link, useHistory } from "react-router-dom";
+import React, { useState, FormEvent } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import { FiArrowRight } from 'react-icons/fi';
-import { HomePage } from "./style";
-import Logo from "../../img/logo.png";
-import api from "../../services/api";
+import { HomePage } from './style';
+import Logo from '../../img/logo.png';
+import api from '../../services/api';
 
 const Home: React.FC = () => {
   const history = useHistory();
 
-  const [cpf, setCpf] = useState("");
-  const [name, setName] = useState("");
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPass, setConfirmPass] = useState("");
+  const [cpf, setCpf] = useState('');
+  const [name, setName] = useState('');
+  const [userName, setUserName] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPass, setConfirmPass] = useState('');
 
   function createAccount(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -24,20 +24,20 @@ const Home: React.FC = () => {
       senha: password,
     };
     if (password !== confirmPass) {
-      alert("Confirm pass");
+      alert('Confirm pass');
       return;
     }
 
     try {
-      api.post(`usuarios`, postData).then((response) => {
+      api.post(`usuarios`, postData).then(response => {
         if (response.status === 200) {
-          history.push("/login");
+          history.push('/login');
         } else {
-          alert("Algo deu errado, tente novamente em alguns minutos.");
+          alert('Algo deu errado, tente novamente em alguns minutos.');
         }
       });
     } catch (e) {
-      alert("Algo deu errado!");
+      alert('Algo deu errado!');
     }
   }
 
@@ -65,7 +65,7 @@ const Home: React.FC = () => {
             <input
               type="text"
               value={cpf}
-              onChange={(e) => {
+              onChange={e => {
                 setCpf(e.target.value);
               }}
               placeholder="Digite seu CPF"
@@ -73,7 +73,7 @@ const Home: React.FC = () => {
             <input
               type="text"
               value={name}
-              onChange={(e) => {
+              onChange={e => {
                 setName(e.target.value);
               }}
               placeholder="Nome completo"
@@ -81,7 +81,7 @@ const Home: React.FC = () => {
             <input
               type="text"
               value={userName}
-              onChange={(e) => {
+              onChange={e => {
                 setUserName(e.target.value);
               }}
               placeholder="Nome do usuário"
@@ -89,7 +89,7 @@ const Home: React.FC = () => {
             <input
               type="password"
               value={password}
-              onChange={(e) => {
+              onChange={e => {
                 setPassword(e.target.value);
               }}
               placeholder="Digite sua senha"
@@ -97,7 +97,7 @@ const Home: React.FC = () => {
             <input
               type="password"
               value={confirmPass}
-              onChange={(e) => {
+              onChange={e => {
                 setConfirmPass(e.target.value);
               }}
               placeholder="Confirme sua senha"
