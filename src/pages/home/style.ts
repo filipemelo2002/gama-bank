@@ -31,9 +31,9 @@ export const HomePage = styled.div`
     .access-div {
       flex: 0;
       color: white;
-      font-size: 20px;
+      font-size: 1.25rem;
       h2 {
-        font-size: 29px;
+        font-size: 1.875rem;
         font-weight: normal;
         margin-bottom: 25px;
       }
@@ -49,7 +49,7 @@ export const HomePage = styled.div`
         text-align: left;
         transition: 0.5s;
         color: #8c52e5;
-        font-size: 18px;
+        font-size: 1.125rem;
         font-weight: 500;
         background: #fff;
         &:hover {
@@ -64,14 +64,14 @@ export const HomePage = styled.div`
       flex: 0;
 
       h4 {
-        font-size: 25px;
+        font-size: 1.5rem;
         font-weight: 500;
       }
 
       form {
         input {
           border: 0;
-          font-size: 16px;
+          font-size: 1rem;
           padding: 8px;
           font-weight: 500;
           text-align: left;
@@ -94,7 +94,7 @@ export const HomePage = styled.div`
         text-align: left;
         transition: 0.5s;
         color: #9b9b9b;
-        font-size: 18px;
+        font-size: 1.125rem;
         font-weight: 500;
         background: #d8d8d8;
         margin: 32px 0 0;
@@ -171,7 +171,7 @@ export const InfoPage = styled.section`
     padding: 80px 30px 80px 107px;
 
     h2 {
-      font-size: 34px;
+      font-size: 2.125rem;
       color: #68de5a;
       font-weight: 500;
     }
@@ -182,7 +182,7 @@ export const InfoPage = styled.section`
     }
 
     p {
-      font-size: 20px;
+      font-size: 1.25rem;
       color: #68de5a;
       font-weight: 400;
     }
@@ -197,7 +197,7 @@ export const InfoPage = styled.section`
     padding: 80px 0 80px 107px;
 
     h2 {
-      font-size: 34px;
+      font-size: 2.125rem;
       color: #1d1d1d;
       font-weight: 500;
     }
@@ -208,7 +208,7 @@ export const InfoPage = styled.section`
     }
 
     p {
-      font-size: 20px;
+      font-size: 1.25rem;
       color: #1d1d1d;
       font-weight: 400;
     }
@@ -274,18 +274,18 @@ export const AnnuityPage = styled.section`
     max-width: 460px;
 
     h2 {
-      font-size: 42px;
+      font-size: 2.625rem;
       font-weight: 700;
     }
     h4 {
-      font-size: 24px;
+      font-size: 1.5rem;
       font-weight: 500;
       margin-top: 36px;
     }
   }
 
   span {
-    font-size: 186px;
+    font-size: 11.63rem;
     font-weight: 500;
     color: #68de5a;
   }
@@ -323,11 +323,11 @@ export const ComplexityPage = styled.section`
     max-width: 460px;
 
     h2 {
-      font-size: 42px;
+      font-size: 2.625rem;
       font-weight: 700;
     }
     h4 {
-      font-size: 24px;
+      font-size: 1.5rem;
       font-weight: 500;
       margin-top: 36px;
     }
@@ -360,12 +360,12 @@ export const InvitePage = styled.section`
     max-width: 460px;
 
     h2 {
-      font-size: 42px;
+      font-size: 2.625rem;
       font-weight: 700;
     }
 
     p {
-      font-size: 14px;
+      font-size: 0.875rem;
       font-weight: 300;
       margin-top: 16px;
     }
