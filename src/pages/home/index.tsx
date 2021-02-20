@@ -1,7 +1,7 @@
 import React, { useState, FormEvent } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FiArrowRight } from 'react-icons/fi';
-import { HomePage, InfoPage, SectionLeft, SectionRight } from './style';
+import { HomePage, InfoPage } from './style';
 import Logo from '../../img/logo.png';
 import api from '../../services/api';
 
@@ -113,18 +113,22 @@ const Home: React.FC = () => {
       </HomePage>
       <InfoPage>
         <div>
-          <SectionLeft>
+          <section className="left">
             <h2>Conta digital do Gama Academy</h2>
-            <p>Rende mais que a poupança,</p>
-            <p>sem taxa de manutenção</p>
-            <p>nem tarifas escondidas.</p>
-          </SectionLeft>
-          <SectionRight>
+            <div>
+              <p>Rende mais que a poupança,</p>
+              <p>sem taxa de manutenção</p>
+              <p>nem tarifas escondidas.</p>
+            </div>
+          </section>
+          <section className="right">
             <h2>Cartão de Crédito</h2>
-            <p>Rende mais que a poupança,</p>
-            <p>sem taxa de manutenção</p>
-            <p>nem tarifas escondidas.</p>
-          </SectionRight>
+            <div>
+              <p>Rende mais que a poupança,</p>
+              <p>sem taxa de manutenção</p>
+              <p>nem tarifas escondidas.</p>
+            </div>
+          </section>
         </div>
       </InfoPage>
     </>

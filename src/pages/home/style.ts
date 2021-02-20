@@ -122,40 +122,56 @@ export const InfoPage = styled.section`
     height: 100%;
     display: flex;
   }
-`;
 
-export const SectionLeft = styled.section`
-  flex: 1;
-  background: #000 url(${bgApp1}) no-repeat left center;
-  padding-left: 107px;
+  section.left {
+    flex: 1;
+    background: #000 url(${bgApp1}) no-repeat left center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 80px 0 80px 107px;
 
-  h2 {
-    font-size: 34px;
-    color: #68de5a;
-    font-weight: 500;
+    h2 {
+      font-size: 34px;
+      color: #68de5a;
+      font-weight: 500;
+    }
+
+    div {
+      height: fit-content;
+      display: block;
+    }
+
+    p {
+      font-size: 20px;
+      color: #68de5a;
+      font-weight: 400;
+    }
   }
 
-  p {
-    font-size: 20px;
-    color: #68de5a;
-    font-weight: 400;
-  }
-`;
+  section.right {
+    flex: 1;
+    background: #f8f8f8 url(${bgApp2}) no-repeat 20% center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 80px 0 80px 107px;
 
-export const SectionRight = styled.section`
-  flex: 1;
-  background: #f8f8f8 url(${bgApp2}) no-repeat 20% center;
-  padding-left: 107px;
+    h2 {
+      font-size: 34px;
+      color: #1d1d1d;
+      font-weight: 500;
+    }
 
-  h2 {
-    font-size: 34px;
-    color: #1d1d1d;
-    font-weight: 500;
-  }
+    div {
+      height: fit-content;
+      display: block;
+    }
 
-  p {
-    font-size: 20px;
-    color: #1d1d1d;
-    font-weight: 400;
+    p {
+      font-size: 20px;
+      color: #1d1d1d;
+      font-weight: 400;
+    }
   }
 `;
