@@ -5,7 +5,7 @@ Gama Bank was developed during Gama Accademy's Bootcamp. This project involves a
 ### Getting started
 
 ```bash
- git clone https://gitlab.com/Aluizi-hub/gama-bank
+ git clone https://github.com/filipemelo2002/gama-bank.git
  cd gama-bank && yarn install
 ```
 
