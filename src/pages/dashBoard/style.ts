@@ -150,3 +150,124 @@ export const Card = styled.div`
   background: #fbfbfb;
   border-radius: 8px;
 `;
+
+export const CardTitle = styled.div`
+  position: absolute;
+  margin-top: 25px;
+  margin-left: 41px;
+  font-family: Roboto;
+  font-size: 38px;
+  line-height: 25px;
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #9b9b9b;
+
+  p {
+    margin-right: 260px;
+    margin-left: 10px;
+    font-size: 28px;
+  }
+`;
+
+export const CardContent = styled.div`
+  position: absolute;
+  margin-left: 41px;
+  margin-top: 100px;
+
+  font-family: Roboto;
+  font-size: 16px;
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #9b9b9b;
+
+  .saldo {
+    position: absolute;
+    margin-top: 70px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 35px;
+    display: flex;
+    align-items: center;
+    color: #010101;
+  }
+
+  .saldo-credito {
+    color: #1783e7;
+  }
+
+  .titulo {
+    position: absolute;
+    margin-top: 189px;
+  }
+
+  .transacoes {
+    position: absolute;
+    margin-top: 187px;
+    margin-left: 150px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 35px;
+    display: flex;
+    align-items: center;
+    text-align: right;
+
+    color: #68de5a;
+  }
+
+  .compras {
+    position: absolute;
+    width: 128px;
+    height: 19px;
+    margin-top: 30px;
+    margin-left: 50px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #010101;
+  }
+
+  .data-compras {
+    margin-left: 740px;
+    color: #9b9b9b;
+  }
+
+  .tipo-compra {
+    color: #9b9b9b;
+    margin-top: 80px;
+    font-size: 18px;
+  }
+
+  .valor-compra {
+    color: #010101;
+    margin-top: 130px;
+    font-size: 20px;
+  }
+
+  .icon-compras {
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0.05%;
+    bottom: 0.05%;
+    font-size: 40px;
+  }
+`;
