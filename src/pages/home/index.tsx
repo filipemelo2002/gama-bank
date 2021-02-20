@@ -1,7 +1,7 @@
 import React, { useState, FormEvent } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FiArrowRight } from 'react-icons/fi';
-import { HomePage, InfoPage } from './style';
+import { HomePage, InfoPage, AnnuityPage } from './style';
 import Logo from '../../img/logo.png';
 import api from '../../services/api';
 
@@ -131,6 +131,16 @@ const Home: React.FC = () => {
           </section>
         </div>
       </InfoPage>
+      <AnnuityPage>
+        <div>
+          <h2>Zero anuidade</h2>
+          <h4>
+            Burocracia custa caro. Somos eficientes para você não ter que pagar
+            tarifas.
+          </h4>
+        </div>
+        <span>0,00</span>
+      </AnnuityPage>
     </>
   );
 };

@@ -175,3 +175,33 @@ export const InfoPage = styled.section`
     }
   }
 `;
+
+export const AnnuityPage = styled.section`
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  div {
+    color: #fff;
+    max-width: 460px;
+
+    h2 {
+      font-size: 42px;
+      font-weight: 700;
+    }
+    h4 {
+      font-size: 24px;
+      font-weight: 500;
+      margin-top: 36px;
+    }
+  }
+
+  span {
+    font-size: 186px;
+    font-weight: 500;
+    color: #68de5a;
+  }
+`;
