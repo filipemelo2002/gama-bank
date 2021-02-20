@@ -1,6 +1,3 @@
-include:
-  - local: "/ci-cd/analysis.yml"
-
 stages:
   - test
 
