@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 import bgImage from '../../img/happy.png';
+import bgApp1 from '../../img/app-bg1.png';
+import bgApp2 from '../../img/app-bg2.png';
+import bgComplexity from '../../img/complexity-bg.png';
 
 export const HomePage = styled.div`
 display: flex;
@@ -100,6 +103,164 @@ height: 100vh;
             }
         }
       }
+    }
+  }
+`;
+
+export const InfoPage = styled.section`
+  width: 100%;
+  height: 100vh;
+  background: #eaeaea;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 60px;
+
+  div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+  }
+
+  section.left {
+    flex: 1;
+    background: #000 url(${bgApp1}) no-repeat left center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 80px 30px 80px 107px;
+
+    h2 {
+      font-size: 34px;
+      color: #68de5a;
+      font-weight: 500;
+    }
+
+    div {
+      height: fit-content;
+      display: block;
+    }
+
+    p {
+      font-size: 20px;
+      color: #68de5a;
+      font-weight: 400;
+    }
+  }
+
+  section.right {
+    flex: 1;
+    background: #f8f8f8 url(${bgApp2}) no-repeat 20% center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 80px 0 80px 107px;
+
+    h2 {
+      font-size: 34px;
+      color: #1d1d1d;
+      font-weight: 500;
+    }
+
+    div {
+      height: fit-content;
+      display: block;
+    }
+
+    p {
+      font-size: 20px;
+      color: #1d1d1d;
+      font-weight: 400;
+    }
+  }
+`;
+
+export const AnnuityPage = styled.section`
+  width: 100%;
+  height: 100vh;
+
+  padding: 0 170px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  div {
+    color: #fff;
+    max-width: 460px;
+
+    h2 {
+      font-size: 42px;
+      font-weight: 700;
+    }
+    h4 {
+      font-size: 24px;
+      font-weight: 500;
+      margin-top: 36px;
+    }
+  }
+
+  span {
+    font-size: 186px;
+    font-weight: 500;
+    color: #68de5a;
+  }
+`;
+
+export const ComplexityPage = styled.section`
+  width: 100%;
+  height: 100vh;
+  background: url(${bgComplexity}) no-repeat center center, #68de5a;
+  background-size: cover;
+
+  padding: 0 170px;
+
+  display: flex;
+  align-items: center;
+  justify-content: start;
+
+  div {
+    color: #fff;
+    max-width: 460px;
+
+    h2 {
+      font-size: 42px;
+      font-weight: 700;
+    }
+    h4 {
+      font-size: 24px;
+      font-weight: 500;
+      margin-top: 36px;
+    }
+  }
+`;
+
+export const InvitePage = styled.section`
+  width: 100%;
+  height: 100vh;
+  background: #eaeaea;
+
+  padding: 0 170px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  div {
+    color: #000;
+    max-width: 460px;
+
+    h2 {
+      font-size: 42px;
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 14px;
+      font-weight: 300;
+      margin-top: 16px;
     }
   }
 `;
