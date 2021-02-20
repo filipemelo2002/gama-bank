@@ -1,8 +1,15 @@
 import React, { useState, FormEvent } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FiArrowRight } from 'react-icons/fi';
-import { HomePage, InfoPage, AnnuityPage, ComplexityPage } from './style';
+import {
+  HomePage,
+  InfoPage,
+  AnnuityPage,
+  ComplexityPage,
+  InvitePage,
+} from './style';
 import Logo from '../../img/logo.png';
+import GamabankAppImg from '../../img/gamabank-app.png';
 import api from '../../services/api';
 
 const Home: React.FC = () => {
@@ -150,6 +157,19 @@ const Home: React.FC = () => {
           </h4>
         </div>
       </ComplexityPage>
+      <InvitePage>
+        <div>
+          <h2>Simplifique a sua vida. Peça seu convite.</h2>
+          <div>
+            <p>GamaAcademy Bank Line S.A. - CNPJ 00.000.000/0000-00</p>
+            <p>Rua Fictícia, 999 - 00000-000 - São Paulo, SP</p>
+            <p>
+              Este é um projeto de avaliação | GamaAcademy | Accenture | 2021
+            </p>
+          </div>
+        </div>
+        <img src={GamabankAppImg} alt="GamaBank App" />
+      </InvitePage>
     </>
   );
 };

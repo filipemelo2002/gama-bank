@@ -233,3 +233,31 @@ export const ComplexityPage = styled.section`
     }
   }
 `;
+
+export const InvitePage = styled.section`
+  width: 100%;
+  height: 100vh;
+  background: #eaeaea;
+
+  padding: 0 170px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  div {
+    color: #000;
+    max-width: 460px;
+
+    h2 {
+      font-size: 42px;
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 14px;
+      font-weight: 300;
+      margin-top: 16px;
+    }
+  }
+`;
