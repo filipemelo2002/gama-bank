@@ -181,9 +181,11 @@ export const AnnuityPage = styled.section`
   width: 100%;
   height: 100vh;
 
+  padding: 0 170px;
+
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 
   div {
     color: #fff;
@@ -213,6 +215,8 @@ export const ComplexityPage = styled.section`
   background: url(${bgComplexity}) no-repeat center center, #68de5a;
   background-size: cover;
 
+  padding: 0 170px;
+
   display: flex;
   align-items: center;
   justify-content: start;
@@ -220,7 +224,6 @@ export const ComplexityPage = styled.section`
   div {
     color: #fff;
     max-width: 460px;
-    margin-left: 170px;
 
     h2 {
       font-size: 42px;
