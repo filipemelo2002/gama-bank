@@ -1,0 +1,19 @@
+include:
+  - local: "/ci-cd/analysis.yml"
+
+stages:
+  - test
+
+# Stage: test
+
+test:
+  image: node:12.18.2-alpine3.12
+  stage: test
+  only:
+    - branches
+    - merge_requests
+  except:
+    - triggers
+  script:
+    - yarn install
+    - yarn lint
