@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import bgImage from '../../img/happy.png';
 import bgApp1 from '../../img/app-bg1.png';
 import bgApp2 from '../../img/app-bg2.png';
+import bgComplexity from '../../img/complexity-bg.png';
 
 export const HomePage = styled.div`
 display: flex;
@@ -203,5 +204,32 @@ export const AnnuityPage = styled.section`
     font-size: 186px;
     font-weight: 500;
     color: #68de5a;
+  }
+`;
+
+export const ComplexityPage = styled.section`
+  width: 100%;
+  height: 100vh;
+  background: url(${bgComplexity}) no-repeat center center, #68de5a;
+  background-size: cover;
+
+  display: flex;
+  align-items: center;
+  justify-content: start;
+
+  div {
+    color: #fff;
+    max-width: 460px;
+    margin-left: 170px;
+
+    h2 {
+      font-size: 42px;
+      font-weight: 700;
+    }
+    h4 {
+      font-size: 24px;
+      font-weight: 500;
+      margin-top: 36px;
+    }
   }
 `;
