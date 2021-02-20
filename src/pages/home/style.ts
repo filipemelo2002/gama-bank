@@ -130,7 +130,7 @@ export const InfoPage = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 80px 0 80px 107px;
+    padding: 80px 30px 80px 107px;
 
     h2 {
       font-size: 34px;
