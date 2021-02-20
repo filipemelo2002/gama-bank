@@ -3,7 +3,6 @@ import bgImage from '../../img/happy.png';
 import bgApp1 from '../../img/app-bg1.png';
 import bgApp2 from '../../img/app-bg2.png';
 import bgComplexity from '../../img/complexity-bg.png';
-import GamabankAppImg from '../../img/gamabank-app.png';
 
 export const HomePage = styled.div`
   display: flex;
