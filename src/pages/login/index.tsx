@@ -20,7 +20,7 @@ const Login: React.FC = () => {
       senha: password,
     };
 
-    api.post(`login`, postData).then(response => {
+    api.post<LoginSuccessResponse>(`login`, postData).then(response => {
       console.log(response.data);
       localStorage.setItem('@tokenApp', response.data.token);
       // history.push('/dashboard')
