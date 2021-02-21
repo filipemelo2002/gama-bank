@@ -59,10 +59,8 @@ const Home: React.FC = () => {
             <h2>Gama Bank é um projeto de nossos alunos.</h2>
             <h2>Já tem conta?</h2>
             <Link to="/login">
-              <button>
-                Acessar
-                <FiArrowRight size={26} color="#8C52E5" />
-              </button>
+              Acessar
+              <FiArrowRight size={26} color="#8C52E5" />
             </Link>
           </div>
           <div className="signup-div">

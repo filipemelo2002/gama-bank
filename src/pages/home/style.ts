@@ -24,12 +24,15 @@ export const HomePage = styled.div`
   }
 
   .middle-div {
+    flex: 1;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 80px;
     .access-div {
-      flex: 0;
+      flex: 1;
+      width: 100%;
+      max-width: 300px;
       color: white;
       font-size: 1.25rem;
       h2 {
@@ -37,7 +40,7 @@ export const HomePage = styled.div`
         font-weight: normal;
         margin-bottom: 25px;
       }
-      button {
+      a {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -45,7 +48,8 @@ export const HomePage = styled.div`
         border: 0;
         border-radius: 100px;
         padding: 15px 30px;
-        width: 250px;
+        width: 100%;
+        max-width: 250px;
         text-align: left;
         transition: 0.5s;
         color: #8c52e5;
@@ -58,10 +62,12 @@ export const HomePage = styled.div`
       }
     }
     .signup-div {
+      flex: 1;
+      width: 100%;
+      max-width: 350px;
       background: white;
       border-radius: 15px;
       padding: 40px;
-      flex: 0;
 
       h4 {
         font-size: 1.5rem;
@@ -69,6 +75,11 @@ export const HomePage = styled.div`
       }
 
       form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
         input {
           border: 0;
           font-size: 1rem;
@@ -90,7 +101,8 @@ export const HomePage = styled.div`
         border: 0;
         border-radius: 100px;
         padding: 15px 30px;
-        width: 325px;
+        width: 100%;
+        max-width: 325px;
         text-align: left;
         transition: 0.5s;
         color: #9b9b9b;
@@ -108,27 +120,34 @@ export const HomePage = styled.div`
 
   @media (max-width: 768px) {
     height: 100%;
+    flex-direction: column;
 
     background: unset;
 
     img {
-      left: 50%;
-      transform: translateX(-50%);
+      position: unset;
+      top: unset;
+      left: unset;
+      margin: 40px auto;
     }
 
     .middle-div {
+      margin: 0 auto;
       flex-direction: column;
-      margin-top: 145px;
 
       .access-div {
         text-align: center;
         display: flex;
         flex-direction: column;
         align-items: center;
+        max-width: unset;
         margin-bottom: 50px;
       }
 
       .signup-div {
+        padding: 20px;
+        margin: 20px;
+        max-width: unset;
         form {
           display: flex;
           flex-direction: column;
@@ -136,11 +155,24 @@ export const HomePage = styled.div`
 
           button {
             width: 100%;
-            min-width: 300px;
             max-width: 325px;
           }
         }
       }
+    }
+  }
+
+  @media (max-height: 425px) {
+    height: 100%;
+    flex-direction: column;
+    img {
+      margin: 40px auto;
+      position: unset;
+      top: unset;
+      left: unset;
+    }
+    div.middle-div {
+      margin-bottom: 40px;
     }
   }
 `;
@@ -257,6 +289,15 @@ export const InfoPage = styled.section`
       background-size: 80%;
     }
   }
+
+  @media (max-height: 425px) {
+    section.left {
+      background-size: 40%;
+    }
+    section.right {
+      background-size: 20%;
+    }
+  }
 `;
 
 export const AnnuityPage = styled.section`
@@ -271,6 +312,7 @@ export const AnnuityPage = styled.section`
 
   div {
     color: #fff;
+    width: 100%;
     max-width: 460px;
 
     h2 {
@@ -303,6 +345,10 @@ export const AnnuityPage = styled.section`
         margin-top: 16px;
       }
     }
+
+    span {
+      font-size: 9rem;
+    }
   }
 `;
 
@@ -320,6 +366,7 @@ export const ComplexityPage = styled.section`
 
   div {
     color: #fff;
+    width: 100%;
     max-width: 460px;
 
     h2 {
@@ -357,6 +404,7 @@ export const InvitePage = styled.section`
 
   div {
     color: #000;
+    width: 100%;
     max-width: 460px;
 
     h2 {
@@ -388,6 +436,12 @@ export const InvitePage = styled.section`
     img {
       width: 30%;
       height: auto;
+    }
+  }
+
+  @media (max-height: 425px) {
+    img {
+      display: none;
     }
   }
 `;
