@@ -21,6 +21,7 @@ export const RecoveryPage = styled.div`
     margin: 0 auto;
     padding: 40px;
 
+    width: 100%;
     max-width: 455px;
 
     background: white;
@@ -40,6 +41,11 @@ export const RecoveryPage = styled.div`
     }
 
     form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
       input {
         display: block;
         border: none;
@@ -69,7 +75,8 @@ export const RecoveryPage = styled.div`
       border: 0;
       border-radius: 50px;
       padding: 12px 30px;
-      width: 325px;
+      width: 100%;
+      max-width: 325px;
       text-align: left;
       transition: 0.5s;
       color: #fff;
@@ -90,6 +97,36 @@ export const RecoveryPage = styled.div`
       font-size: 13px;
       font-weight: 500;
       color: #8c52e5;
+    }
+  }
+
+  @media (max-width: 768px) {
+    height: 100%;
+    padding: 20px;
+    img {
+      position: unset;
+      top: unset;
+      left: unset;
+      margin: 40px auto;
+    }
+    div.recoveryPass-div {
+      margin-bottom: 40px;
+      padding: 30px;
+    }
+  }
+
+  @media (max-height: 425px) {
+    height: 100%;
+
+    img {
+      margin: 40px auto;
+      position: unset;
+      top: unset;
+      left: unset;
+    }
+
+    div.recoveryPass-div {
+      margin-bottom: 40px;
     }
   }
 `;
