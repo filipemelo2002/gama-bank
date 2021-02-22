@@ -27,11 +27,35 @@ const initialState = (): AuthInitialState => ({
   loading: false,
 });
 
-const reducer = (state = initialState(), action) => {
+type Action = AuthSuccess | AuthPending;
+
+const reducer = (state = initialState(), action: Action): AuthInitialState => {
   switch (action.type) {
+    case `${TEMPLATE_NAME}_PENDING`: {
+      return {
+        ...state,
+        loading: true,
+        error: false,
+      };
+    }
     case `${TEMPLATE_NAME}_SUCCESS`: {
       const { payload } = action;
-      return {};
+      return {
+        ...state,
+        ...payload,
+        error: false,
+        loading: false,
+      };
+    }
+    case `${TEMPLATE_NAME}_ERROR`: {
+      return {
+        ...state,
+        loading: false,
+        error: true,
+      };
+    }
+    case `${TEMPLATE_NAME}_RESET`: {
+      return initialState();
     }
     default: {
       return state;
