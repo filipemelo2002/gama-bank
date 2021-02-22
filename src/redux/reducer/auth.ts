@@ -27,7 +27,7 @@ const initialState = (): AuthInitialState => ({
   loading: false,
 });
 
-type Action = AuthSuccess | AuthPending;
+type Action = AuthSuccess | AuthPending | AuthRejected;
 
 const reducer = (state = initialState(), action: Action): AuthInitialState => {
   switch (action.type) {
@@ -47,7 +47,7 @@ const reducer = (state = initialState(), action: Action): AuthInitialState => {
         loading: false,
       };
     }
-    case `${TEMPLATE_NAME}_ERROR`: {
+    case `${TEMPLATE_NAME}_REJECTED`: {
       return {
         ...state,
         loading: false,
@@ -55,6 +55,9 @@ const reducer = (state = initialState(), action: Action): AuthInitialState => {
       };
     }
     case `${TEMPLATE_NAME}_RESET`: {
+      return initialState();
+    }
+    case 'RESET': {
       return initialState();
     }
     default: {

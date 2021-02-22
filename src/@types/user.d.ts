@@ -22,3 +22,15 @@ interface LoginSuccessResponse {
   };
   token: string;
 }
+
+interface LoginData {
+  usuario: string;
+  senha: string;
+}
+
+interface SignUpData {
+  cpf: string;
+  login: string;
+  nome: string;
+  senha: string;
+}

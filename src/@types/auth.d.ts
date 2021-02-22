@@ -10,5 +10,7 @@ interface AuthSuccess {
 
 interface AuthPending {
   type: string;
-  payload: undefined;
+  payload?: undefined;
 }
+
+type AuthRejected = AuthPending;
