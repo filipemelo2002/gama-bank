@@ -1,22 +1,22 @@
 interface LoginSuccessResponse {
   usuario: {
-    id: number;
+    id: number | undefined;
     cpf: string;
     nome: string;
     login: string;
     redefinirSenha: boolean;
   };
   conta: {
-    id: number;
+    id: number | undefined;
     numero: string;
-    saldo: number;
+    saldo: number | undefined;
     tipo: string;
     descricao: string;
   };
   contaCredito: {
-    id: number;
+    id: number | undefined;
     numero: string;
-    saldo: number;
+    saldo: number | undefined;
     tipo: string;
     descricao: string;
   };
