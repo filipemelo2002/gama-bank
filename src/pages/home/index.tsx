@@ -10,7 +10,7 @@ import {
 } from './style';
 import Logo from '../../img/logo.png';
 import GamabankAppImg from '../../img/gamabank-app.png';
-import api from '../../services/api';
+import * as Api from '../../api/auth';
 
 const Home: React.FC = () => {
   const history = useHistory();
@@ -21,7 +21,7 @@ const Home: React.FC = () => {
   const [password, setPassword] = useState('');
   const [confirmPass, setConfirmPass] = useState('');
 
-  function createAccount(e: FormEvent<HTMLFormElement>) {
+  async function createAccount(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     const postData = {
@@ -35,17 +35,7 @@ const Home: React.FC = () => {
       return;
     }
 
-    try {
-      api.post(`usuarios`, postData).then(response => {
-        if (response.status === 200) {
-          history.push('/login');
-        } else {
-          alert('Algo deu errado, tente novamente em alguns minutos.');
-        }
-      });
-    } catch (e) {
-      alert('Algo deu errado!');
-    }
+    await Api.signUp(postData);
   }
 
   return (

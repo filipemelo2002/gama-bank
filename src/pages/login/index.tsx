@@ -4,28 +4,27 @@ import { FiArrowRight, FiChevronRight } from 'react-icons/fi';
 import Logo from '../../img/logo.png';
 import { LoginPage } from './style';
 
-import api from '../../services/api';
+// REDUX
+import * as Creators from '../../redux/action/auth';
+import { useSelector, useDispatch } from 'react-redux';
 
 const Login: React.FC = () => {
+  const dispatch = useDispatch();
+  const { loading, error } = useSelector((state: State) => state.auth);
+
   const history = useHistory();
 
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
 
-  function loginSys(e: FormEvent<HTMLFormElement>) {
+  const handleLogin = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     const postData = {
       usuario: login,
       senha: password,
     };
-
-    api.post(`login`, postData).then(response => {
-      console.log(response.data);
-      localStorage.setItem('@tokenApp', response.data.token);
-      // history.push('/dashboard')
-    });
-  }
+    dispatch(Creators.login(postData));
+  };
 
   return (
     <LoginPage>
@@ -36,7 +35,7 @@ const Login: React.FC = () => {
         <div>
           <h4>Faça seu Login</h4>
         </div>
-        <form onSubmit={loginSys}>
+        <form onSubmit={handleLogin}>
           <input
             value={login}
             onChange={e => {
