@@ -1,4 +1,4 @@
-import React, { useState, FormEvent } from 'react';
+import React, { useState, FormEvent, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FiArrowRight, FiChevronRight } from 'react-icons/fi';
 import Logo from '../../img/logo.png';
@@ -7,15 +7,22 @@ import { LoginPage } from './style';
 // REDUX
 import * as Creators from '../../redux/action/auth';
 import { useSelector, useDispatch } from 'react-redux';
+import Loading from '../../components/Loading';
 
 const Login: React.FC = () => {
   const dispatch = useDispatch();
-  const { loading, error } = useSelector((state: State) => state.auth);
+  const { loading, token } = useSelector((state: State) => state.auth);
 
   const history = useHistory();
 
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
+
+  useEffect(() => {
+    if (token.length !== 0) {
+      history.push('/dashboard');
+    }
+  }, [token]);
 
   const handleLogin = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -52,10 +59,11 @@ const Login: React.FC = () => {
             type="password"
             placeholder="Digite sua senha"
           />
-          <button type="submit">
+          <button type="submit" style={loading ? { display: 'none' } : {}}>
             Continuar
             <FiArrowRight size={26} color="#FFF" />
           </button>
+          <Loading isVisible={loading} />
         </form>
         <Link to="/recoveryPass">
           Esqueci minha senha

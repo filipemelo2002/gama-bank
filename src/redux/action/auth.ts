@@ -8,6 +8,7 @@ export const login = (data: LoginData) => {
     try {
       dispatch<AuthPending>({ type: `${TEMPLATE_NAME}_PENDING` });
       const response = await Auth.login(data);
+      localStorage.setItem('@tokenApp', response.token);
       dispatch<AuthSuccess>({
         type: `${TEMPLATE_NAME}_SUCCESS`,
         payload: response,
