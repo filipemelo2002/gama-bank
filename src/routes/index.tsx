@@ -21,7 +21,7 @@ const PrivateRoute: React.FC<PrivateRouteProps> = ({
   <Route
     {...rest}
     render={props =>
-      isAuth ? (
+      isAuth?.length !== 0 ? (
         <Component />
       ) : (
         <Redirect to={{ pathname: '/', state: { from: props.location } }} />
