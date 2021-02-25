@@ -1,4 +1,3 @@
-import { isAuth } from '../services/isAuth';
 import { showError } from '../services/ShowToast';
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 
@@ -7,7 +6,7 @@ const api = axios.create({
 });
 
 api.interceptors.request.use(async (request: AxiosRequestConfig) => {
-  const token = await isAuth;
+  const token = localStorage.getItem('@tokenApp');
   if (request.url !== 'login') {
     request.headers.Authorization = `Bearer ${token}`;
   }
