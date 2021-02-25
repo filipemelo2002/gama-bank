@@ -12,6 +12,8 @@ export default createGlobalStyle`
 
 body {
     background: #8C52E5;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 a {
@@ -20,5 +22,22 @@ a {
 
 button {
     cursor: pointer;
+}
+
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #4b12a3;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #5c05e3;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  width: 10px;
 }
 `;

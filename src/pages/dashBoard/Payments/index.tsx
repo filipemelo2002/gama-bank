@@ -3,7 +3,7 @@ import { Row, Container, Card, CardHeader } from './style';
 
 import { HiOutlineCurrencyDollar } from 'react-icons/hi';
 
-const Deposits: React.FC = () => {
+const Payments: React.FC = () => {
   return (
     <Container>
       <span>Olá Usuário, faça seus pagamentos</span>
@@ -32,4 +32,4 @@ const Deposits: React.FC = () => {
   );
 };
 
-export default Deposits;
+export default Payments;
