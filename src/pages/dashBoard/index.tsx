@@ -8,6 +8,7 @@ import { Switch, Route } from 'react-router-dom';
 import Home from './Home';
 import Deposits from './Deposits';
 import Payments from './Payments';
+import Planning from './Planning';
 
 const DashBoard: React.FC = () => {
   return (
@@ -17,11 +18,7 @@ const DashBoard: React.FC = () => {
         <Switch>
           <Route exact path="/dashboard/" component={Home} />
           <Route exact path="/dashboard/depositos" component={Deposits} />
-          <Route
-            exact
-            path="/dashboard/planos"
-            component={() => <h1>Planos</h1>}
-          />
+          <Route exact path="/dashboard/planos" component={Planning} />
           <Route exact path="/dashboard/pagamentos" component={Payments} />
           <Route
             exact
