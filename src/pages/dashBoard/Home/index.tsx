@@ -13,68 +13,35 @@ import { BsCreditCard } from 'react-icons/bs';
 import { AiOutlineEyeInvisible } from 'react-icons/ai';
 import ReactLoading from 'react-loading';
 
-import api from '../../../api';
+import * as Creators from '../../../redux/action/dashboard';
 import { toMoney } from '../../../utils/toMoney';
 import { getMonthName } from '../../../utils/getDate';
-
-interface ILancamentosData {
-  id: number;
-  conta: number;
-  data: string;
-  descricao: string;
-  planoConta: {
-    id: number;
-    descricao: string;
-  };
-  tipo: 'R' | 'D';
-  valor: string;
-}
-
-interface IAccountData {
-  contaBanco: {
-    id: number;
-    lancamentos: ILancamentosData[];
-    saldo: string;
-  };
-  contaCredito: {
-    id: number;
-    lancamentos: ILancamentosData[];
-    saldo: string;
-  };
-}
+import { useDispatch, useSelector } from 'react-redux';
 
 const Home: React.FC = () => {
-  const [account, setAccount] = useState<IAccountData>({} as IAccountData);
-
+  const dispatch = useDispatch();
+  const { login, nome } = useSelector((state: State) => state.auth.usuario);
+  const { loading, error, ...account } = useSelector((state: State) => {
+    return state.dashboard;
+  });
   useEffect(() => {
     const now = new Date();
     const fim = now.toISOString().split('T')[0];
     now.setDate(now.getDate() - 30);
     const inicio = now.toISOString().split('T')[0];
-
-    api
-      .get('dashboard', {
-        params: {
-          fim,
-          inicio,
-          login: 'nelsonsantosaraujo',
-        },
-      })
-      .then(response => {
-        setAccount(response.data);
-      });
+    dispatch(Creators.loadData({ login, inicio, fim }));
   }, []);
 
   return (
     <Container>
-      {!Object.keys(account).length ? (
+      {loading ? (
         <LoaderContainer>
           <ReactLoading type="spin" color="#FFF" width={'20%'} height={'20%'} />
         </LoaderContainer>
       ) : (
         <>
           <header>
-            <span>Olá Usuário, seja bem vindo!</span>
+            <span>Olá {nome}, seja bem vindo!</span>
             <Button type="button">
               <AiOutlineEyeInvisible size={30} color="#8C52E5" />
             </Button>

@@ -28,11 +28,6 @@ export const Container = styled.aside`
       flex-direction: column;
       margin-top: 1rem;
       background: rgb(140, 82, 229);
-      background: linear-gradient(
-        128deg,
-        rgba(140, 82, 229, 1) 0%,
-        rgba(55, 0, 142, 1) 100%
-      );
       width: 100px;
       height: 100px;
       padding: 12px;

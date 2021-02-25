@@ -8,8 +8,6 @@ import Error from '../pages/error';
 import RecoveryPass from '../pages/recoveryPass';
 import DashBoard from '../pages/dashBoard';
 
-import { isAuth } from '../services/isAuth';
-
 interface PrivateRouteProps extends RouteProps {
   component: ComponentType;
 }
