@@ -21,7 +21,7 @@ const PrivateRoute: React.FC<PrivateRouteProps> = ({
   <Route
     {...rest}
     render={props =>
-      isAuth !== null && isAuth.length > 0 ? (
+      localStorage.getItem('@tokenApp') ? (
         <Component />
       ) : (
         <Redirect to={{ pathname: '/', state: { from: props.location } }} />
