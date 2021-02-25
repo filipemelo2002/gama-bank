@@ -2,12 +2,18 @@ import React from 'react';
 import { Container } from './style';
 import { HiOutlinePlusCircle } from 'react-icons/hi';
 
-const ItemInconme: React.FC = () => {
+interface IItemIncomeProps {
+  description: string;
+}
+
+const ItemInconme: React.FC<IItemIncomeProps> = ({
+  description,
+}: IItemIncomeProps) => {
   return (
     <Container>
       <HiOutlinePlusCircle color="#0000FF" size={25} />
       <div>
-        <strong>Salário</strong>
+        <strong>{description}</strong>
         <p>Receita</p>
       </div>
     </Container>

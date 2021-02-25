@@ -81,3 +81,9 @@ export const SecondCard = styled.div`
   min-height: 30vh;
   border-radius: 8px;
 `;
+
+export const CardPlan = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+`;
