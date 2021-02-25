@@ -1,4 +1,3 @@
-import { AxiosError } from 'axios';
 import Redux from 'redux';
 import * as Auth from '../../api/auth';
 import { TEMPLATE_NAME } from '../reducer/auth';

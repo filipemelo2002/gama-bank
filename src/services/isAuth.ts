@@ -1,2 +1,2 @@
 export const TOKEN_KEY = '@tokenApp';
-export const isAuth = null || localStorage.getItem('@tokenApp');
+export const isAuth = localStorage.getItem('@tokenApp');
