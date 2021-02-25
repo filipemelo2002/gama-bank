@@ -9,6 +9,7 @@ import Home from './Home';
 import Deposits from './Deposits';
 import Payments from './Payments';
 import Planning from './Planning';
+import Transactions from './Transactions';
 
 const DashBoard: React.FC = () => {
   return (
@@ -20,11 +21,7 @@ const DashBoard: React.FC = () => {
           <Route exact path="/dashboard/depositos" component={Deposits} />
           <Route exact path="/dashboard/planos" component={Planning} />
           <Route exact path="/dashboard/pagamentos" component={Payments} />
-          <Route
-            exact
-            path="/dashboard/transacoes"
-            component={() => <h1>Transações</h1>}
-          />
+          <Route exact path="/dashboard/transacoes" component={Transactions} />
         </Switch>
       </Content>
     </Container>
