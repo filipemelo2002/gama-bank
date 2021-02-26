@@ -2,6 +2,7 @@ import React from 'react';
 import { Row, Container, Card, CardHeader } from './style';
 
 import { HiOutlineCurrencyDollar } from 'react-icons/hi';
+import PlanSelect from '../../../components/PlanSelect';
 
 const Payments: React.FC = () => {
   return (
@@ -16,11 +17,7 @@ const Payments: React.FC = () => {
         <form action="">
           <Row>
             <input type="text" placeholder="Descrição" />
-            <select defaultValue="plano">
-              <option value="plano" hidden>
-                Plano
-              </option>
-            </select>
+            <PlanSelect />
           </Row>
           <Row>
             <input type="text" placeholder="R$ 450,00" />
