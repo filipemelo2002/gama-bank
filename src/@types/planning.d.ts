@@ -1,9 +1,9 @@
 interface Planning {
   descricao: string;
-  id: number | undefined;
+  id?: number | undefined;
   login: string;
-  padrao: boolean;
-  tipMovimento: string;
+  padrao?: boolean;
+  tipoMovimento: string;
 }
 
 interface PlanningState {
