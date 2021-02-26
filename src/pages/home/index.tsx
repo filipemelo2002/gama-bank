@@ -1,5 +1,5 @@
 import React, { useState, FormEvent } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { FiArrowRight } from 'react-icons/fi';
 import {
   HomePage,
@@ -11,10 +11,10 @@ import {
 import Logo from '../../img/logo.png';
 import GamabankAppImg from '../../img/gamabank-app.png';
 import * as Api from '../../api/auth';
+import { maskCPF } from '../../utils/masks';
+import { showError } from '../../services/ShowToast';
 
 const Home: React.FC = () => {
-  const history = useHistory();
-
   const [cpf, setCpf] = useState('');
   const [name, setName] = useState('');
   const [userName, setUserName] = useState('');
@@ -24,18 +24,28 @@ const Home: React.FC = () => {
   async function createAccount(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
+    if (cpf === '' || name === '' || userName === '' || password === '') {
+      showError('Preencha todos os campos!');
+      return;
+    }
+
+    if (password !== confirmPass) {
+      showError('Senhas não coincidem.');
+      return;
+    }
+
     const postData = {
-      cpf,
+      cpf: cpf.replace(/[^0-9]/g, ''),
       nome: name,
       login: userName,
       senha: password,
     };
-    if (password !== confirmPass) {
-      alert('Confirm pass');
-      return;
-    }
 
     await Api.signUp(postData);
+  }
+
+  function handleMask(value: string) {
+    setCpf(maskCPF(value));
   }
 
   return (
@@ -62,9 +72,10 @@ const Home: React.FC = () => {
                 type="text"
                 value={cpf}
                 onChange={e => {
-                  setCpf(e.target.value);
+                  handleMask(e.target.value);
                 }}
                 placeholder="Digite seu CPF"
+                maxLength={14}
               />
               <input
                 type="text"
