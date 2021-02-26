@@ -28,7 +28,8 @@ export const Container = styled.aside`
       flex-direction: column;
       margin-top: 1rem;
       background: rgb(140, 82, 229);
-      width: 100px;
+      width: 100%;
+      max-width: 100px;
       height: 100px;
       padding: 12px;
       border-radius: 5px;
@@ -40,7 +41,7 @@ export const Container = styled.aside`
       }
 
       span {
-        font-size: 14px;
+        font-size: 0.875rem;
         color: #fff;
         margin-top: auto;
       }
@@ -52,8 +53,44 @@ export const Container = styled.aside`
       }
     }
   }
+
+  @media (max-width: 768px) {
+    bottom: 0;
+    width: 100%;
+    height: fit-content;
+    min-height: unset;
+    flex-direction: row;
+    padding-top: 0;
+
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.7);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.7);
+
+    div {
+      width: 100%;
+      height: 100%;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly;
+
+      .option {
+        height: fit-content;
+        align-items: center;
+        margin-top: 0;
+        margin-bottom: 1rem;
+
+        span {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
 `;
 
 export const Link = styled(a)`
   text-decoration: none;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;

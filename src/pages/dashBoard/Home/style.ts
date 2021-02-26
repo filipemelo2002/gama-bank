@@ -7,16 +7,17 @@ export const Container = styled.div`
   padding-left: 90px;
   padding-right: 90px;
   padding-bottom: 90px;
-  max-width: 90%;
+  width: 100%;
   min-height: 100vh;
   header {
     display: flex;
     width: 100%;
+    max-width: 910px;
     align-items: center;
     span {
       color: #ffffff;
       font-family: Roboto;
-      font-size: 22px;
+      font-size: 1.375rem;
     }
     button {
       margin-left: auto;
@@ -26,7 +27,8 @@ export const Container = styled.div`
   .content {
     margin-top: 40px;
     display: flex;
-    max-width: 100%;
+    width: 100%;
+    max-width: 910px;
     align-items: center;
     justify-content: space-between;
   }
@@ -37,6 +39,8 @@ export const Container = styled.div`
     padding: 20px 35px;
     border-radius: 8px;
     min-height: 400px;
+    width: 100%;
+    max-width: 910px;
 
     ul {
       margin-top: 40px;
@@ -48,6 +52,10 @@ export const Container = styled.div`
         width: 100%;
         align-items: flex-start;
 
+        & + li {
+          margin-top: 25px;
+        }
+
         div {
           margin-left: 20px;
           h3 {
@@ -55,11 +63,11 @@ export const Container = styled.div`
           }
           span {
             color: #9b9b9b;
-            font-size: 18px;
+            font-size: 1.125rem;
             font-weight: 100;
           }
           p {
-            font-size: 20px;
+            font-size: 1.25rem;
             margin-top: 10px;
           }
         }
@@ -67,10 +75,28 @@ export const Container = styled.div`
         small {
           margin-left: auto;
           color: #9b9b9b;
-          font-size: 12px;
+          font-size: 0.75rem;
         }
       }
     }
+  }
+
+  @media (max-width: 1024px) {
+    .content {
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 70px 40px 90px;
+  }
+
+  @media (max-width: 425px) {
+    padding: 70px 20px;
+  }
+
+  @media (max-width: 375px) {
+    padding: 40px 10px;
   }
 `;
 
@@ -84,12 +110,21 @@ export const LoaderContainer = styled.div`
 export const Card = styled.div`
   background: #fbfbfb;
   padding: 20px 35px;
-  width: 400px;
-  max-width: 90%;
+  width: 100%;
   border-radius: 8px;
   -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.24);
   -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.24);
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.24);
+  & + div {
+    margin-left: 40px;
+  }
+
+  @media (max-width: 1024px) {
+    & + div {
+      margin-top: 40px;
+      margin-left: 0;
+    }
+  }
 `;
 
 export const CardHeader = styled.div`
@@ -99,7 +134,7 @@ export const CardHeader = styled.div`
     color: #9b9b9b;
     font-family: Roboto;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1rem;
     align-self: center;
   }
 `;
@@ -112,11 +147,11 @@ export const CardBody = styled.div<CardBodyProps>`
   margin-top: 36px;
   span {
     color: #9b9b9b;
-    font-size: 16px;
+    font-size: 1rem;
     margin-top: 0;
   }
   h2 {
-    font-size: 30px;
+    font-size: 1.875rem;
     margin-top: 10px;
     color: ${({ type }) => (type === 'credit' ? `#1783E7` : `#000`)};
   }
@@ -131,8 +166,15 @@ export const CardBody = styled.div<CardBodyProps>`
       margin-top: 0;
     }
     p {
-      font-size: 30px;
+      font-size: 1.875rem;
       color: #68de5a;
+    }
+  }
+
+  @media (max-width: 768px) {
+    section {
+      flex-direction: column;
+      align-items: flex-start;
     }
   }
 `;
