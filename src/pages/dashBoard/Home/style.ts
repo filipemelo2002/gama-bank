@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
@@ -93,10 +93,42 @@ export const Container = styled.div`
 
   @media (max-width: 425px) {
     padding: 70px 20px;
+
+    main {
+      ul {
+        li {
+          flex-wrap: wrap;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+          &:last-child {
+            border-bottom: 0;
+          }
+          span {
+            width: 100%;
+            margin-left: unset;
+          }
+        }
+      }
+    }
   }
 
   @media (max-width: 375px) {
     padding: 40px 10px;
+    main {
+      ul {
+        li {
+          flex-wrap: wrap;
+          div {
+            margin-left: 0;
+            padding-left: 5px;
+          }
+          span {
+            width: 100%;
+            margin-left: unset;
+          }
+        }
+      }
+    }
   }
 `;
 
@@ -164,6 +196,7 @@ export const CardBody = styled.div<CardBodyProps>`
     justify-content: space-between;
     span {
       margin-top: 0;
+      flex: 1;
     }
     p {
       font-size: 1.875rem;
@@ -178,6 +211,7 @@ export const CardBody = styled.div<CardBodyProps>`
     }
   }
 `;
+
 export const Row = styled.div`
   display: flex;
   margin-left: 40px;
@@ -200,4 +234,27 @@ export const Button = styled.button`
   :hover {
     transform: scale(1.1);
   }
+
+  svg {
+    margin: 10px 12px;
+  }
+`;
+
+interface BoxVisibilityProps {
+  type?: 'default' | 'credit';
+  isVisible: boolean;
+}
+
+export const BoxVisibility = styled.div<BoxVisibilityProps>`
+  ${({ isVisible }) =>
+    isVisible &&
+    css`
+      margin-top: 10px;
+      width: 100%;
+      height: 2.25rem;
+      background: rgba(0, 0, 0, 0.05);
+      & * {
+        display: none;
+      }
+    `}
 `;

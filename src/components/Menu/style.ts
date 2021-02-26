@@ -45,7 +45,7 @@ export const Container = styled.aside`
         color: #fff;
         margin-top: auto;
       }
-      :hover {
+      &:hover {
         transform: scale(1.1);
         -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.24);
         -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.24);
@@ -55,6 +55,8 @@ export const Container = styled.aside`
   }
 
   @media (max-width: 768px) {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
     bottom: 0;
     width: 100%;
     height: fit-content;
@@ -78,10 +80,29 @@ export const Container = styled.aside`
         align-items: center;
         margin-top: 0;
         margin-bottom: 1rem;
+        background: unset;
 
         span {
           margin-top: 10px;
+          font-weight: 600;
         }
+
+        &:hover {
+          transform: none;
+          -webkit-box-shadow: none;
+          -moz-box-shadow: none;
+          box-shadow: none;
+
+          filter: contrast(0%);
+        }
+      }
+    }
+  }
+
+  @media (max-width: 375px) {
+    div {
+      .option {
+        padding: 6px;
       }
     }
   }
