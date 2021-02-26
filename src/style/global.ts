@@ -12,7 +12,6 @@ export default createGlobalStyle`
 
 body {
     background: #8C52E5;
-    overflow-y: hidden;
     overflow-x: hidden;
 }
 
