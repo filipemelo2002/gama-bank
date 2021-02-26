@@ -21,7 +21,7 @@ const reducer = (state = initialState(), action: Action): PlanningState => {
       const { payload } = action;
       return {
         ...state,
-        ...payload,
+        plannings: payload,
         error: false,
         loading: false,
       };

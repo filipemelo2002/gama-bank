@@ -7,7 +7,7 @@ interface Planning {
 }
 
 interface PlanningState {
-  plannings: Planning[];
+  plannings: Planning[] | undefined;
   loading: boolean;
   error: boolean;
 }
