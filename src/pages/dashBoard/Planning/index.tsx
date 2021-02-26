@@ -12,33 +12,27 @@ import { HiOutlinePlusCircle } from 'react-icons/hi';
 import Sheet from '../../../img/sheet.svg';
 import ItemInconme from '../../../components/ItemIncome';
 import ItemExpense from '../../../components/ItemExpense';
-import api from '../../../api';
-
-interface IPlansData {
-  id: number;
-  descricao: string;
-  tipoMovimento: string;
-}
+import { useDispatch, useSelector } from 'react-redux';
+import * as Creators from '../../../redux/action/planning';
 
 const Planning: React.FC = () => {
-  const [plans, setPlans] = useState<IPlansData[]>([]);
+  const dispatch = useDispatch();
+  const { login, nome } = useSelector((state: State) => state.auth.usuario);
+  const plannings = useSelector((state: State) => state.planning.plannings);
+  const [plans, setPlans] = useState<Planning[] | undefined>([]);
   const [description, setDescription] = useState('');
   const [type, setType] = useState('');
 
   useEffect(() => {
-    api
-      .get('/lancamentos/planos-conta', {
-        params: {
-          login: 'nelsonsantosaraujo',
-        },
-      })
-      .then(response => {
-        setPlans(response.data);
-      });
+    dispatch(Creators.loadData(login));
   }, []);
 
+  useEffect(() => {
+    setPlans(plannings);
+  }, [plannings]);
+
   const handleSubmit = useCallback(
-    (e: FormEvent<HTMLFormElement>) => {
+    async (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault();
 
       if (description === '' || type === '') {
@@ -49,23 +43,19 @@ const Planning: React.FC = () => {
       const formData = {
         descricao: description,
         tipoMovimento: type,
-        login: 'nelsonsantosaraujo',
+        login,
       };
 
-      api
-        .post('lancamentos/planos-conta', formData)
-        .catch(err => console.log(err))
-        .finally(() => {
-          setDescription('');
-          setType('');
-        });
+      dispatch(Creators.create(formData));
+      dispatch(Creators.loadData(login));
+      setDescription('');
     },
     [description, type],
   );
 
   return (
     <Container>
-      <span>Olá Usuário, adicione novos planos</span>
+      <span>Olá {nome}, adicione novos planos</span>
       <FirstCard>
         <CardHeader>
           <HiOutlinePlusCircle size={38} color="#9B9B9B" />
