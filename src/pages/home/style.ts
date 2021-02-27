@@ -119,6 +119,7 @@ export const HomePage = styled.div`
   }
 
   @media (max-width: 768px) {
+    min-height: 100vh;
     height: 100%;
     flex-direction: column;
 
