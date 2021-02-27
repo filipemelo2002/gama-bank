@@ -7,7 +7,11 @@ const api = axios.create({
 
 api.interceptors.request.use(async (request: AxiosRequestConfig) => {
   const token = localStorage.getItem('@tokenApp');
-  if (request.url !== 'login') {
+  if (
+    request.url !== 'login' &&
+    request.url !== 'nova-senha' &&
+    !request.url?.includes('altera-senha')
+  ) {
     request.headers.Authorization = `Bearer ${token}`;
   }
   return request;
