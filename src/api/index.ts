@@ -10,6 +10,7 @@ api.interceptors.request.use(async (request: AxiosRequestConfig) => {
   if (
     request.url !== 'login' &&
     request.url !== 'nova-senha' &&
+    request.url !== 'usuarios' &&
     !request.url?.includes('altera-senha')
   ) {
     request.headers.Authorization = `Bearer ${token}`;

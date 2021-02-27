@@ -1,5 +1,5 @@
 import React, { useState, FormEvent } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FiArrowRight } from 'react-icons/fi';
 import {
   HomePage,
@@ -13,16 +13,21 @@ import GamabankAppImg from '../../img/gamabank-app.png';
 import * as Api from '../../api/auth';
 import { maskCPF } from '../../utils/masks';
 import { showError } from '../../services/ShowToast';
+import Loading from '../../components/Loading';
 
 const Home: React.FC = () => {
+  const [loading, setLoading] = useState(false);
   const [cpf, setCpf] = useState('');
   const [name, setName] = useState('');
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPass, setConfirmPass] = useState('');
+  const history = useHistory();
 
   async function createAccount(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
+    setLoading(true);
 
     if (cpf === '' || name === '' || userName === '' || password === '') {
       showError('Preencha todos os campos!');
@@ -41,7 +46,14 @@ const Home: React.FC = () => {
       senha: password,
     };
 
-    await Api.signUp(postData);
+    try {
+      await Api.signUp(postData);
+      setLoading(false);
+      history.push('/login');
+    } catch (err) {
+      showError(err);
+      setLoading(false);
+    }
   }
 
   function handleMask(value: string) {
@@ -92,6 +104,7 @@ const Home: React.FC = () => {
                   setUserName(e.target.value);
                 }}
                 placeholder="Nome do usuário"
+                maxLength={20}
               />
               <input
                 type="password"
@@ -109,10 +122,11 @@ const Home: React.FC = () => {
                 }}
                 placeholder="Confirme sua senha"
               />
-              <button type="submit">
+              <button type="submit" style={loading ? { display: 'none' } : {}}>
                 Continuar
                 <FiArrowRight size={29} color="#9B9B9B" />
               </button>
+              <Loading isVisible={loading} />
             </form>
           </div>
         </div>
