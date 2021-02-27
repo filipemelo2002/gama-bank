@@ -1,24 +1,26 @@
-import React, { FormEvent, useEffect, useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 import { FiArrowRight } from 'react-icons/fi';
 import { Link, useHistory } from 'react-router-dom';
 import api from '../../api';
 import Loading from '../../components/Loading';
 import Logo from '../../img/logo.png';
-import { showError, showSuccess } from '../../services/ShowToast';
+import { showError } from '../../services/ShowToast';
 // import { Container } from './styles';
 
 import { RecoveryPage } from './style';
+import { useDispatch, useSelector } from 'react-redux';
+import * as Creators from '../../redux/action/auth';
 
 const RecoveryPass: React.FC = () => {
+  const dispatch = useDispatch();
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
-  const [loading, setLoading] = useState(false);
+  const { loading } = useSelector((state: State) => state.auth);
   const history = useHistory();
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setLoading(true);
 
     if (userName === '' || password === '') {
       showError('Preencha todos os campos!');
@@ -27,28 +29,9 @@ const RecoveryPass: React.FC = () => {
 
     if (password !== passwordConfirm) {
       showError('Senhas não coincidem.');
-      return;
     }
-
-    try {
-      const response = await api.post('nova-senha', {
-        email: 'fake@mail.com',
-        login: userName,
-      });
-      const temporaryPassword = response.data;
-
-      await api.post(`altera-senha?senhaTemporaria=${temporaryPassword}`, {
-        usuario: userName,
-        senha: password,
-      });
-
-      showSuccess('Senha alterada com sucesso!');
-      setLoading(false);
-      history.push('/login');
-    } catch (err) {
-      showError(`Ocorreu um erro: ${err}`);
-      setLoading(false);
-    }
+    await dispatch(Creators.forgotPassword({ userName, password }));
+    history.push('/login');
   }
 
   return (

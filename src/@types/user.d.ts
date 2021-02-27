@@ -34,3 +34,8 @@ interface SignUpData {
   nome: string;
   senha: string;
 }
+
+interface ForgotPasswordData {
+  userName: string;
+  password: string;
+}

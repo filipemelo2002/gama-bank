@@ -12,5 +12,9 @@ interface AuthPending {
   type: string;
   payload?: undefined;
 }
+interface AuthChangePassword {
+  type: string;
+  payload: string;
+}
 
 type AuthRejected = AuthPending;

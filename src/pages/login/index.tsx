@@ -19,7 +19,6 @@ const Login: React.FC = () => {
   const [password, setPassword] = useState('');
 
   useEffect(() => {
-    console.log('CALLED HERE', token);
     if (token.length !== 0) {
       history.push('/dashboard');
     }

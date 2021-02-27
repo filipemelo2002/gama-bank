@@ -27,7 +27,7 @@ const initialState = (): AuthInitialState => ({
   loading: false,
 });
 
-type Action = AuthSuccess | AuthPending | AuthRejected;
+type Action = AuthSuccess | AuthPending | AuthRejected | AuthChangePassword;
 
 const reducer = (state = initialState(), action: Action): AuthInitialState => {
   switch (action.type) {
@@ -39,7 +39,7 @@ const reducer = (state = initialState(), action: Action): AuthInitialState => {
       };
     }
     case `${TEMPLATE_NAME}_SUCCESS`: {
-      const { payload } = action;
+      const { payload } = action as AuthSuccess;
       return {
         ...state,
         ...payload,
@@ -52,6 +52,17 @@ const reducer = (state = initialState(), action: Action): AuthInitialState => {
         ...state,
         loading: false,
         error: true,
+      };
+    }
+    case `${TEMPLATE_NAME}_CHANGE_PASSWORD`: {
+      return {
+        ...state,
+        usuario: {
+          ...state.usuario,
+          redefinirSenha: true,
+        },
+        loading: false,
+        error: false,
       };
     }
     case `${TEMPLATE_NAME}_RESET`: {
