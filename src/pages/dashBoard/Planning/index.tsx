@@ -60,10 +60,10 @@ const Planning: React.FC = () => {
     <Container>
       <header>
         <span>Olá {nome}, adicione novos planos.</span>
-        <Logout />
         <Link to="/dashboard/">
           <AiOutlineHome size={30} color="#8C52E5" />
         </Link>
+        <Logout />
       </header>
       <FirstCard>
         <CardHeader>

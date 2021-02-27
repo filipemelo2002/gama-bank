@@ -160,6 +160,7 @@ export const Link = styled(a)`
   width: 47px;
   height: 47px;
   display: flex;
+  margin-right: 20px;
   align-items: center;
   justify-content: center;
   background: #68de5a;
