@@ -6,9 +6,11 @@ import {
   CardHeader,
   SecondCard,
   CardPlan,
+  Link,
 } from './style';
 
 import { HiOutlinePlusCircle } from 'react-icons/hi';
+import { AiOutlineHome } from 'react-icons/ai';
 import Sheet from '../../../img/sheet.svg';
 import ItemInconme from '../../../components/ItemIncome';
 import ItemExpense from '../../../components/ItemExpense';
@@ -55,7 +57,12 @@ const Planning: React.FC = () => {
 
   return (
     <Container>
-      <span>Olá {nome}, adicione novos planos</span>
+      <header>
+        <span>Olá {nome}, adicione novos planos.</span>
+        <Link to="/dashboard/">
+          <AiOutlineHome size={30} color="#8C52E5" />
+        </Link>
+      </header>
       <FirstCard>
         <CardHeader>
           <HiOutlinePlusCircle size={38} color="#9B9B9B" />
