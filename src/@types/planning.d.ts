@@ -25,3 +25,13 @@ interface PlanningSuccess {
 }
 
 type PlanningData = Planning;
+
+interface PlanningTransactionData {
+  conta: number;
+  contaDestino: string;
+  data: string;
+  descricao: string;
+  login: string;
+  planoConta: number;
+  valor: number;
+}

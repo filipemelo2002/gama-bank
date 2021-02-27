@@ -39,3 +39,14 @@ export const create = (data: PlanningData) => {
     }
   };
 };
+
+export const transaction = (data: PlanningTransactionData) => {
+  return async (dispatch: Redux.Dispatch): Promise<void> => {
+    try {
+      dispatch(pending());
+      await Api.transaction(data);
+    } catch (err) {
+      dispatch(rejected());
+    }
+  };
+};
