@@ -4,12 +4,19 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
 
-  span {
-    color: #ffffff;
-    font-family: Roboto;
-    font-size: 22px;
+  header {
     margin-top: 70px;
     margin-left: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 65vw;
+
+    span {
+      color: #ffffff;
+      font-family: Roboto;
+      font-size: 22px;
+    }
   }
 `;
 

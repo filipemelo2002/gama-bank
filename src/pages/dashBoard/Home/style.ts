@@ -11,6 +11,7 @@ export const Container = styled.div`
   min-height: 100vh;
   header {
     display: flex;
+    justify-content: space-between;
     width: 100%;
     max-width: 910px;
     align-items: center;
@@ -18,6 +19,9 @@ export const Container = styled.div`
       color: #ffffff;
       font-family: Roboto;
       font-size: 1.375rem;
+    }
+    div {
+      display: flex;
     }
     button {
       margin-left: auto;
@@ -221,6 +225,7 @@ export const Row = styled.div`
 export const Button = styled.button`
   width: 47px;
   height: 47px;
+  margin-right: 20px;
   display: flex;
   align-items: center;
   justify-content: center;

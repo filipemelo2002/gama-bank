@@ -3,11 +3,17 @@ import { Row, Container, Card, CardHeader } from './style';
 
 import { HiOutlineCurrencyDollar } from 'react-icons/hi';
 import PlanSelect from '../../../components/PlanSelect';
+import { useSelector } from 'react-redux';
+import Logout from '../../../components/LogoutButton';
 
 const Deposits: React.FC = () => {
+  const { nome } = useSelector((state: State) => state.auth.usuario);
   return (
     <Container>
-      <span>Olá Usuário, faça seus depositos</span>
+      <header>
+        <span>Olá {nome}, faça seus depositos</span>
+        <Logout />
+      </header>
       <Card>
         <CardHeader>
           <HiOutlineCurrencyDollar size={38} color="#9B9B9B" />
