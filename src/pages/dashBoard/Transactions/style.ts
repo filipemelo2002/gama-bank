@@ -53,9 +53,9 @@ export const FirstCard = styled.div`
       margin-right: 25px;
       border: 1px solid #9b9b9b9b;
       border-radius: 8px;
+      padding-left: 10px;
 
       ::placeholder {
-        padding-left: 10px;
         color: #9b9b9b9b;
       }
     }
