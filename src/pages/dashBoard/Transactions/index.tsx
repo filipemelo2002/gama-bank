@@ -4,11 +4,17 @@ import { Container, FirstCard, CardHeader, SecondCard } from './style';
 import { BiDollarCircle } from 'react-icons/bi';
 import TransactionItem from '../../../components/TransactionItem';
 import Search from '../../../img/Search.svg';
+import { useSelector } from 'react-redux';
+import Logout from '../../../components/LogoutButton';
 
 const Transactions: React.FC = () => {
+  const { nome } = useSelector((state: State) => state.auth.usuario);
   return (
     <Container>
-      <span>Olá Usuário, confira suas transações</span>
+      <header>
+        <span>Olá {nome}, confira suas transações</span>
+        <Logout />
+      </header>
       <FirstCard>
         <img src={Search} alt="search" />
         <h1>Consultar transações</h1>

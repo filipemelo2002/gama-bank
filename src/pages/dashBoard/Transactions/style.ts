@@ -5,12 +5,19 @@ export const Container = styled.div`
   flex-direction: column;
   padding-bottom: 40px;
 
-  span {
-    color: #ffffff;
-    font-family: Roboto;
-    font-size: 22px;
+  header {
     margin-top: 70px;
     margin-left: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 65vw;
+
+    span {
+      color: #ffffff;
+      font-family: Roboto;
+      font-size: 22px;
+    }
   }
 `;
 
@@ -46,9 +53,9 @@ export const FirstCard = styled.div`
       margin-right: 25px;
       border: 1px solid #9b9b9b9b;
       border-radius: 8px;
+      padding-left: 10px;
 
       ::placeholder {
-        padding-left: 10px;
         color: #9b9b9b9b;
       }
     }

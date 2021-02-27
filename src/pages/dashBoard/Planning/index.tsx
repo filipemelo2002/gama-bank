@@ -16,6 +16,7 @@ import ItemInconme from '../../../components/ItemIncome';
 import ItemExpense from '../../../components/ItemExpense';
 import { useDispatch, useSelector } from 'react-redux';
 import * as Creators from '../../../redux/action/planning';
+import Logout from '../../../components/LogoutButton';
 
 const Planning: React.FC = () => {
   const dispatch = useDispatch();
@@ -59,6 +60,7 @@ const Planning: React.FC = () => {
     <Container>
       <header>
         <span>Olá {nome}, adicione novos planos.</span>
+        <Logout />
         <Link to="/dashboard/">
           <AiOutlineHome size={30} color="#8C52E5" />
         </Link>
