@@ -18,6 +18,7 @@ import * as Creators from '../../../redux/action/dashboard';
 import { toMoney } from '../../../utils/toMoney';
 import { getMonthName } from '../../../utils/getDate';
 import { useDispatch, useSelector } from 'react-redux';
+import Logout from '../../../components/LogoutButton';
 
 const Home: React.FC = () => {
   const dispatch = useDispatch();
@@ -50,13 +51,16 @@ const Home: React.FC = () => {
         <>
           <header>
             <span>Olá {nome}, seja bem vindo!</span>
-            <Button type="button" onClick={handleVisibility}>
-              {isVisible ? (
-                <AiOutlineEye size={30} color="#8C52E5" />
-              ) : (
-                <AiOutlineEyeInvisible size={30} color="#8C52E5" />
-              )}
-            </Button>
+            <div>
+              <Button type="button" onClick={handleVisibility}>
+                {isVisible ? (
+                  <AiOutlineEye size={30} color="#8C52E5" />
+                ) : (
+                  <AiOutlineEyeInvisible size={30} color="#8C52E5" />
+                )}
+              </Button>
+              <Logout />
+            </div>
           </header>
           <div className="content">
             <Card>
