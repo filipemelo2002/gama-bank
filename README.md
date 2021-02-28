@@ -31,7 +31,7 @@ Before you begin, you will need to have the following tools installed on your ma
 # Run git clone command to clone the repository
   git clone https://github.com/filipemelo2002/gama-bank.git
 # Enter the cloned repository folder
-  cd gama-bank && yarn install
+  cd gama-bank
 ```
 
 ### Starting the project
@@ -50,7 +50,7 @@ Before you begin, you will need to have the following tools installed on your ma
 ## Mind Map
 
 <h1 align="center">
-    <img alt="mind map" src="../gama-bank/public/mindmap.jpg" />
+    <img alt="mind map" src="https://ik.imagekit.io/t58nj4hrrhv/mindmap_7Nf7SL5Op.jpg" />
 </h1>
 
 ## Contributors
