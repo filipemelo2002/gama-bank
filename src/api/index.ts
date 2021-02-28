@@ -24,6 +24,10 @@ api.interceptors.response.use(
   },
   (error: AxiosError) => {
     showError(error.response?.data.error);
+    if (error.response?.data.error.includes('JWT')) {
+      localStorage.removeItem('@tokenApp');
+      window.location.reload();
+    }
     throw error;
   },
 );

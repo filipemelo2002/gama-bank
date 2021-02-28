@@ -17,6 +17,7 @@ import ItemExpense from '../../../components/ItemExpense';
 import { useDispatch, useSelector } from 'react-redux';
 import * as Creators from '../../../redux/action/planning';
 import Logout from '../../../components/LogoutButton';
+import { showError } from '../../../services/ShowToast';
 
 const Planning: React.FC = () => {
   const dispatch = useDispatch();
@@ -39,7 +40,7 @@ const Planning: React.FC = () => {
       e.preventDefault();
 
       if (description === '' || type === '') {
-        console.log('campos não preenchidos');
+        showError('Por favor, preencha todos os campos');
         return;
       }
 

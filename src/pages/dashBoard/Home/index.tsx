@@ -38,7 +38,6 @@ const Home: React.FC = () => {
 
   function handleVisibility() {
     setIsVisible(!isVisible);
-    console.log(isVisible);
   }
 
   return (
