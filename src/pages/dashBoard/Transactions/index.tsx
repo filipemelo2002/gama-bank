@@ -1,9 +1,17 @@
 import React from 'react';
-import { Container, FirstCard, CardHeader, SecondCard } from './style';
+import {
+  Row,
+  Container,
+  FirstCard,
+  CardHeader,
+  SecondCard,
+  Link,
+} from './style';
 
+import { AiOutlineHome } from 'react-icons/ai';
 import { BiDollarCircle } from 'react-icons/bi';
+import { IoSearchCircleOutline } from 'react-icons/io5';
 import TransactionItem from '../../../components/TransactionItem';
-import Search from '../../../img/Search.svg';
 import { useSelector } from 'react-redux';
 import Logout from '../../../components/LogoutButton';
 
@@ -13,27 +21,48 @@ const Transactions: React.FC = () => {
     <Container>
       <header>
         <span>Olá {nome}, confira suas transações</span>
+        <Link to="/dashboard/">
+          <AiOutlineHome size={30} color="#8C52E5" />
+        </Link>
         <Logout />
       </header>
       <FirstCard>
-        <img src={Search} alt="search" />
-        <h1>Consultar transações</h1>
+        <CardHeader>
+          <IoSearchCircleOutline size={38} color="#9B9B9B" />
+          <h1>Consultar transações</h1>
+        </CardHeader>
 
-        <form action="">
-          <input type="text" placeholder="21/02/2021" />
-          <p>até</p>
-          <input type="text" placeholder="21/02/2021" />
-          <button type="submit">Buscar</button>
+        <form>
+          <Row>
+            <input
+              type="text"
+              placeholder="Data de início"
+              onFocus={e => (e.target.type = 'date')}
+              onBlur={e => e.target.value === '' && (e.target.type = 'text')}
+            />
+            <span>até</span>
+            <input
+              type="text"
+              placeholder="Data de fim"
+              onFocus={e => (e.target.type = 'date')}
+              onBlur={e => e.target.value === '' && (e.target.type = 'text')}
+            />
+            <button type="submit">Buscar</button>
+          </Row>
         </form>
       </FirstCard>
       <SecondCard>
         <CardHeader>
-          <BiDollarCircle size={38} color="#9b9b9b" />
+          <BiDollarCircle size={38} color="#9B9B9B" />
           <h1>Lançamentos</h1>
         </CardHeader>
-        <TransactionItem />
-        <TransactionItem />
-        <TransactionItem />
+        <div>
+          <TransactionItem />
+          <TransactionItem />
+          <TransactionItem />
+          <TransactionItem />
+          <TransactionItem />
+        </div>
       </SecondCard>
     </Container>
   );
