@@ -33,6 +33,13 @@ const reducer = (state = initialState(), action: Action): PlanningState => {
         error: true,
       };
     }
+    case `${TEMPLATE_NAME}_FINISHED`: {
+      return {
+        ...state,
+        loading: true,
+        error: false,
+      };
+    }
     case `${TEMPLATE_NAME}_RESET`: {
       return initialState();
     }

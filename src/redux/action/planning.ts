@@ -14,6 +14,12 @@ export const rejected = (): PlanningRejected => {
   };
 };
 
+export const finished = (): PlanningPending => {
+  return {
+    type: `${TEMPLATE_NAME}_FINISHED`,
+  };
+};
+
 export const loadData = (login: string) => {
   return async (dispatch: Redux.Dispatch): Promise<void> => {
     try {
@@ -34,6 +40,7 @@ export const create = (data: PlanningData) => {
     try {
       dispatch(pending());
       await Api.create(data);
+      dispatch(finished());
     } catch (err) {
       dispatch(rejected());
     }
@@ -45,6 +52,7 @@ export const transaction = (data: PlanningTransactionData) => {
     try {
       dispatch(pending());
       await Api.transaction(data);
+      dispatch(finished());
     } catch (err) {
       dispatch(rejected());
     }

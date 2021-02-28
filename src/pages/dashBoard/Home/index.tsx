@@ -133,6 +133,24 @@ const Home: React.FC = () => {
                     <li key={lancamento.id}>
                       <BsCreditCard size={28} color="#9b9b9b" />
                       <div>
+                        <h3>Compra no crédito</h3>
+                        <span>{lancamento.descricao}</span>
+                        <p>{toMoney(lancamento.valor)}</p>
+                      </div>
+                      <small>
+                        Dia {day} de {getMonthName(month)}
+                      </small>
+                    </li>
+                  );
+                })}
+                {account.contaBanco.lancamentos.map(lancamento => {
+                  const day = new Date(lancamento.data).getUTCDate();
+                  const month = new Date(lancamento.data).getUTCMonth();
+
+                  return (
+                    <li key={lancamento.id}>
+                      <BsCreditCard size={28} color="#9b9b9b" />
+                      <div>
                         <h3>Compra no débito</h3>
                         <span>{lancamento.descricao}</span>
                         <p>{toMoney(lancamento.valor)}</p>

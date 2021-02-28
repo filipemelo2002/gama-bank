@@ -49,7 +49,12 @@ export const Card = styled.div`
     border-radius: 8px;
   }
 `;
-
+export const LoaderContainer = styled.div`
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 export const CardHeader = styled.div`
   display: flex;
   margin-top: 20px;

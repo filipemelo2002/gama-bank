@@ -27,7 +27,7 @@ interface PlanningSuccess {
 type PlanningData = Planning;
 
 interface PlanningTransactionData {
-  conta: number;
+  conta: number | undefined;
   contaDestino: string;
   data: string;
   descricao: string;
