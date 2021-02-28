@@ -1,7 +1,9 @@
 <h1 align="center">
 Gama Bank
 </h1>
+
 ## :eyes: Overview
+
 Gama Bank was developed during Gama Accademy's Bootcamp. This project involves all sort of different technologies and required some effort from us to understand and finally finish it.
 
 <h1 align="center">
