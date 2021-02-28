@@ -1,5 +1,12 @@
 import React, { FormEvent, useState } from 'react';
-import { Row, Container, Card, CardHeader, LoaderContainer } from './style';
+import {
+  Row,
+  Container,
+  FirstCard,
+  CardHeader,
+  LoaderContainer,
+  Link,
+} from './style';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { HiOutlineCurrencyDollar } from 'react-icons/hi';
@@ -10,12 +17,13 @@ import { showError } from '../../../services/ShowToast';
 import ReactLoading from 'react-loading';
 
 import * as Creators from '../../../redux/action/planning';
+import { AiOutlineHome } from 'react-icons/ai';
 const Deposits: React.FC = () => {
   const dispatch = useDispatch();
   const [planoConta, setPlanoConta] = useState(0);
   const [description, setDescription] = useState('');
   const [value, setValue] = useState('');
-  const { error, ...account } = useSelector((state: State) => {
+  const { ...account } = useSelector((state: State) => {
     return state.dashboard;
   });
   const { nome, login } = useSelector((state: State) => state.auth.usuario);
@@ -61,10 +69,13 @@ const Deposits: React.FC = () => {
   return (
     <Container>
       <header>
-        <span>Olá {nome}, faça seus pagamentos</span>
+        <span>Olá {nome}, faça seus depósitos.</span>
+        <Link to="/dashboard/">
+          <AiOutlineHome size={30} color="#8C52E5" />
+        </Link>
         <Logout />
       </header>
-      <Card>
+      <FirstCard>
         <CardHeader>
           <HiOutlineCurrencyDollar size={38} color="#9B9B9B" />
           <h1>Pagar</h1>
@@ -88,6 +99,7 @@ const Deposits: React.FC = () => {
           <Row>
             <input
               type="text"
+              className="price"
               placeholder="R$ 450,00"
               value={value}
               onChange={e => {
@@ -99,7 +111,7 @@ const Deposits: React.FC = () => {
             <button type="submit">Pagar</button>
           </Row>
         </form>
-      </Card>
+      </FirstCard>
     </Container>
   );
 };
