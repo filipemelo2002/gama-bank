@@ -1,8 +1,13 @@
-# :zap: Gama Bank
+<h1 align="center">
+Gama Bank
+</h1>
 ## :eyes: Overview
 Gama Bank was developed during Gama Accademy's Bootcamp. This project involves all sort of different technologies and required some effort from us to understand and finally finish it.
 
----
+<h1 align="center">
+    <img alt="Home Page" src="https://ik.imagekit.io/t58nj4hrrhv/home_0xFgSnICD.jpg" />
+    <img alt="Dashboard Page" src="https://ik.imagekit.io/t58nj4hrrhv/dashboard_MHJB0se05.jpg" />
+</h1>
 
 ## :wrench: Technologies
 * [ReactJs](https://pt-br.reactjs.org/)
