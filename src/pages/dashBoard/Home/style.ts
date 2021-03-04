@@ -45,44 +45,6 @@ export const Container = styled.div`
     min-height: 400px;
     width: 100%;
     max-width: 910px;
-
-    ul {
-      margin-top: 40px;
-      list-style: none;
-      width: 100%;
-
-      li {
-        display: flex;
-        width: 100%;
-        align-items: flex-start;
-
-        & + li {
-          margin-top: 25px;
-        }
-
-        div {
-          margin-left: 20px;
-          h3 {
-            margin-bottom: 10px;
-          }
-          span {
-            color: #9b9b9b;
-            font-size: 1.125rem;
-            font-weight: 100;
-          }
-          p {
-            font-size: 1.25rem;
-            margin-top: 10px;
-          }
-        }
-
-        small {
-          margin-left: auto;
-          color: #9b9b9b;
-          font-size: 0.75rem;
-        }
-      }
-    }
   }
 
   @media (max-width: 1024px) {
@@ -97,42 +59,13 @@ export const Container = styled.div`
 
   @media (max-width: 425px) {
     padding: 70px 20px;
-
     main {
-      ul {
-        li {
-          flex-wrap: wrap;
-          border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-
-          &:last-child {
-            border-bottom: 0;
-          }
-          span {
-            width: 100%;
-            margin-left: unset;
-          }
-        }
-      }
+      padding: 20px 10px;
     }
   }
 
   @media (max-width: 375px) {
     padding: 40px 10px;
-    main {
-      ul {
-        li {
-          flex-wrap: wrap;
-          div {
-            margin-left: 0;
-            padding-left: 5px;
-          }
-          span {
-            width: 100%;
-            margin-left: unset;
-          }
-        }
-      }
-    }
   }
 `;
 

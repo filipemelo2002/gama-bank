@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 
 import {
   Container,
@@ -16,17 +16,22 @@ import ReactLoading from 'react-loading';
 
 import * as Creators from '../../../redux/action/dashboard';
 import { toMoney } from '../../../utils/toMoney';
-import { getMonthName } from '../../../utils/getDate';
 import { useDispatch, useSelector } from 'react-redux';
 import Logout from '../../../components/LogoutButton';
+import TransactionItem from '../../../components/TransactionItem';
+
+interface ILancamentos extends ILancamentosData {
+  title: string;
+}
 
 const Home: React.FC = () => {
   const dispatch = useDispatch();
   const { login, nome } = useSelector((state: State) => state.auth.usuario);
-  const { loading, error, ...account } = useSelector((state: State) => {
+  const { loading, ...account } = useSelector((state: State) => {
     return state.dashboard;
   });
   const [isVisible, setIsVisible] = useState(false);
+  const [list, setList] = useState<ILancamentos[]>([]);
 
   useEffect(() => {
     const now = new Date();
@@ -39,6 +44,42 @@ const Home: React.FC = () => {
   function handleVisibility() {
     setIsVisible(!isVisible);
   }
+
+  useMemo(() => {
+    const lancamentoDebito = account.contaBanco.lancamentos.map(lancamento => {
+      let title;
+
+      if (lancamento.tipo === 'D') {
+        title = 'Compra no débito';
+      } else {
+        title = 'Depósito';
+      }
+
+      return { ...lancamento, title };
+    });
+
+    const lancamentoCredito = account.contaCredito.lancamentos.map(
+      lancamento => {
+        let title;
+
+        if (lancamento.tipo === 'D') {
+          title = 'Compra no crédito';
+        } else {
+          title = 'Transferência';
+        }
+
+        return { ...lancamento, title };
+      },
+    );
+
+    const lancamentoArray = [...lancamentoDebito, ...lancamentoCredito];
+
+    setList(
+      lancamentoArray.sort(function (a, b) {
+        return Number(new Date(b.data)) - Number(new Date(a.data));
+      }),
+    );
+  }, [account.contaBanco.lancamentos, account.contaCredito.lancamentos]);
 
   return (
     <Container>
@@ -73,9 +114,15 @@ const Home: React.FC = () => {
                   <h2>{toMoney(account.contaBanco.saldo)}</h2>
                 </BoxVisibility>
                 <section>
-                  <span>Limite disponível</span>
+                  <span>Transações</span>
                   <BoxVisibility isVisible={isVisible}>
-                    <p>R$ 9.120,00</p>
+                    <p>
+                      {toMoney(
+                        account.contaBanco.lancamentos
+                          .reduce((acc, value) => acc + Number(value.valor), 0)
+                          .toFixed(2),
+                      )}
+                    </p>
                   </BoxVisibility>
                 </section>
               </CardBody>
@@ -86,14 +133,25 @@ const Home: React.FC = () => {
                 <h1>Conta Crédito</h1>
               </CardHeader>
               <CardBody type="credit">
-                <span>Saldo disponível</span>
+                <span>Fatura atual</span>
                 <BoxVisibility isVisible={isVisible}>
-                  <h2>{toMoney(account.contaCredito.saldo)}</h2>
+                  <h2>
+                    {toMoney(Math.abs(Number(account.contaCredito.saldo)))}
+                  </h2>
                 </BoxVisibility>
                 <section>
                   <span>Limite disponível</span>
                   <BoxVisibility isVisible={isVisible}>
-                    <p>R$ 9.120,00</p>
+                    <p>
+                      {toMoney(
+                        account.contaCredito.lancamentos
+                          .reduce(
+                            (acc, value) => acc - Math.abs(Number(value.valor)),
+                            10000,
+                          )
+                          .toFixed(2),
+                      )}
+                    </p>
                   </BoxVisibility>
                 </section>
               </CardBody>
@@ -105,62 +163,23 @@ const Home: React.FC = () => {
               <h1>Últimos lançamentos</h1>
             </CardHeader>
             <BoxVisibility isVisible={isVisible}>
-              <ul>
-                {account.contaBanco.lancamentos.map(lancamento => {
-                  const day = new Date(lancamento.data).getUTCDate();
-                  const month = new Date(lancamento.data).getUTCMonth();
-
+              <div>
+                {list.map(lancamento => {
                   return (
-                    <li key={lancamento.id}>
-                      <BsCreditCard size={28} color="#9b9b9b" />
-                      <div>
-                        <h3>Compra no débito</h3>
-                        <span>{lancamento.descricao}</span>
-                        <p>{toMoney(lancamento.valor)}</p>
-                      </div>
-                      <small>
-                        Dia {day} de {getMonthName(month)}
-                      </small>
-                    </li>
+                    <TransactionItem
+                      key={lancamento.id}
+                      id={lancamento.id}
+                      title={lancamento.title}
+                      descricao={lancamento.descricao}
+                      conta={lancamento.conta}
+                      data={lancamento.data}
+                      planoConta={lancamento.planoConta}
+                      tipo={lancamento.tipo}
+                      valor={lancamento.valor}
+                    />
                   );
                 })}
-                {account.contaCredito.lancamentos.map(lancamento => {
-                  const day = new Date(lancamento.data).getUTCDate();
-                  const month = new Date(lancamento.data).getUTCMonth();
-
-                  return (
-                    <li key={lancamento.id}>
-                      <BsCreditCard size={28} color="#9b9b9b" />
-                      <div>
-                        <h3>Compra no crédito</h3>
-                        <span>{lancamento.descricao}</span>
-                        <p>{toMoney(lancamento.valor)}</p>
-                      </div>
-                      <small>
-                        Dia {day} de {getMonthName(month)}
-                      </small>
-                    </li>
-                  );
-                })}
-                {account.contaBanco.lancamentos.map(lancamento => {
-                  const day = new Date(lancamento.data).getUTCDate();
-                  const month = new Date(lancamento.data).getUTCMonth();
-
-                  return (
-                    <li key={lancamento.id}>
-                      <BsCreditCard size={28} color="#9b9b9b" />
-                      <div>
-                        <h3>Compra no débito</h3>
-                        <span>{lancamento.descricao}</span>
-                        <p>{toMoney(lancamento.valor)}</p>
-                      </div>
-                      <small>
-                        Dia {day} de {getMonthName(month)}
-                      </small>
-                    </li>
-                  );
-                })}
-              </ul>
+              </div>
             </BoxVisibility>
           </main>
         </>

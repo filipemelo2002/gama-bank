@@ -1,7 +1,6 @@
 import React, { FormEvent, useState } from 'react';
 import { FiArrowRight } from 'react-icons/fi';
 import { Link, useHistory } from 'react-router-dom';
-import api from '../../api';
 import Loading from '../../components/Loading';
 import Logo from '../../img/logo.png';
 import { showError } from '../../services/ShowToast';
